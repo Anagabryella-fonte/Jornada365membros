@@ -1,48 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jornada 365 Dias com Deus</title>
-  <link rel="stylesheet" href="style.css">
+  <title>365 Dias com Deus</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #conteudo {
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #444;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      background: black;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="container">
+  <div id="conteudo"></div>
 
-    <!-- Tela Inicial -->
-    <section id="home-screen" class="screen active">
-      <div class="overlay">
-        <h1>Jornada 365 Dias com Deus</h1>
-        <p>Um encontro diário com Deus para cura, paz e transformação.</p>
-        <button id="start-btn">Começar Jornada</button>
-      </div>
-    </section>
+  <button onclick="proximoDia()">Próximo dia</button>
 
-    <!-- Tela Devocional -->
-    <section id="devotional-screen" class="screen">
-      <div class="card">
-        <div class="progress-container">
-          <div id="progress-bar"></div>
-        </div>
-
-        <span id="day-number">Dia 1</span>
-        <h2 id="title"></h2>
-        <p class="verse" id="verse"></p>
-        <p class="reflection" id="reflection"></p>
-
-        <div class="prayer-box">
-          <h3>Oração</h3>
-          <p id="prayer"></p>
-        </div>
-
-        <button id="next-btn">Próximo Dia</button>
-      </div>
-    </section>
-
-  </div>
-
+  <!-- SEU ARQUIVO JS -->
   <script src="devocionais.js"></script>
-  <script src="app.js"></script>
+
+  <script>
+    let diaAtual = 0;
+
+    function mostrarDia() {
+      const d = devocional[diaAtual];
+
+      document.getElementById("conteudo").innerHTML = `
+        <h2>Dia ${d.dia}</h2>
+        <h3>${d.titulo}</h3>
+        <p><strong>Semana:</strong> ${d.temaSemana}</p>
+        <p><strong>${d.diaSemana}</strong></p>
+        <p><em>${d.versiculo}</em></p>
+        <p>${d.reflexao}</p>
+        <p><strong>Oração:</strong> ${d.oracao}</p>
+        <p><strong>Louvor:</strong> ${d.louvor}</p>
+      `;
+    }
+
+    function proximoDia() {
+      if (diaAtual < devocional.length - 1) {
+        diaAtual++;
+        mostrarDia();
+      }
+    }
+
+    mostrarDia();
+  </script>
+
 </body>
 </html>
