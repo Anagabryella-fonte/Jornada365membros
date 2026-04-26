@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jornada 365 Dias com Deus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Tela Inicial -->
+    <section id="home-screen" class="screen active">
+      <div class="overlay">
+        <h1>Jornada 365 Dias com Deus</h1>
+        <p>Um encontro diário com Deus para cura, paz e transformação.</p>
+        <button id="start-btn">Começar Jornada</button>
+      </div>
+    </section>
+
+    <!-- Tela Devocional -->
+    <section id="devotional-screen" class="screen">
+      <div class="card">
+        <div class="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+
+        <span id="day-number">Dia 1</span>
+        <h2 id="title"></h2>
+        <p class="verse" id="verse"></p>
+        <p class="reflection" id="reflection"></p>
+
+        <div class="prayer-box">
+          <h3>Oração</h3>
+          <p id="prayer"></p>
+        </div>
+
+        <button id="next-btn">Próximo Dia</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="devocionais.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
