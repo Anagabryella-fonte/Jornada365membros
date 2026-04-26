@@ -4347,3 +4347,4 @@ const devocionais = [
     oracao: "Senhor, obrigado por este ano de caminhada. Me prepara para o próximo nível.",
     louvor: "Não Pare - Midian Lima"
   }
+];
