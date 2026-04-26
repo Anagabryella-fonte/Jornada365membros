@@ -22,15 +22,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    h2 {
-      margin-bottom: 5px;
-    }
-
-    h3 {
-      margin-top: 0;
-      color: #444;
-    }
-
     button {
       margin-top: 20px;
       padding: 10px 15px;
@@ -53,16 +44,16 @@
 
   <button onclick="proximoDia()">Próximo dia</button>
 
-  <!-- SEU ARQUIVO COM OS 365 DIAS -->
+  <!-- SEU JS -->
   <script src="devocionais.js"></script>
 
   <script>
     let diaAtual = 0;
 
     function mostrarDia() {
-      const d = devocional[diaAtual];
+      // 👇 AQUI ESTÁ A CORREÇÃO IMPORTANTE
+      const d = devocionais[diaAtual];
 
-      // proteção simples pra não quebrar o site
       if (!d) return;
 
       document.getElementById("conteudo").innerHTML = `
@@ -78,7 +69,7 @@
     }
 
     function proximoDia() {
-      if (diaAtual < devocional.length - 1) {
+      if (diaAtual < devocionais.length - 1) {
         diaAtual++;
         mostrarDia();
       }
