@@ -53,7 +53,7 @@
 
   <button onclick="proximoDia()">Próximo dia</button>
 
-  <!-- SEU ARQUIVO JS -->
+  <!-- SEU ARQUIVO COM OS 365 DIAS -->
   <script src="devocionais.js"></script>
 
   <script>
@@ -61,6 +61,9 @@
 
     function mostrarDia() {
       const d = devocional[diaAtual];
+
+      // proteção simples pra não quebrar o site
+      if (!d) return;
 
       document.getElementById("conteudo").innerHTML = `
         <h2>Dia ${d.dia}</h2>
